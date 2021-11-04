@@ -7,6 +7,7 @@ let allTasks = document.querySelectorAll(".draggable");
 document.getElementById("filter").addEventListener("keyup", filterTasks);
 
 function addTask(e) {
+    e.preventDefault ();
     var input = document.querySelector('.task').value;
     if (input != "") {
         var task = {
@@ -177,6 +178,7 @@ function getDragAfterItem(box, y) {
 }
 
 function filterTasks(e) {
+    e.preventDefault();
     var text = e.target.value;
     Array.from(allTasks).forEach(function (task) {
         if (task.innerText.slice(0, -5).indexOf(text) != -1) {
